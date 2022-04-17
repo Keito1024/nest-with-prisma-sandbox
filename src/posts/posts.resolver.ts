@@ -8,7 +8,7 @@ export class PostsResolver {
 
   @Query(() => [Post])
   async posts() {
-    return this.prisma.post.findMany();
+    return this.prisma.posts.findMany();
   }
 
   @Mutation(() => Post)
@@ -16,6 +16,6 @@ export class PostsResolver {
     @Args('title') title: string,
     @Args('content') content: string,
   ) {
-    return this.prisma.post.create({ data: { title, content } });
+    return this.prisma.posts.create({ data: { title, content } });
   }
 }

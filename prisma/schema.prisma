@@ -10,14 +10,19 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "./ERD.svg"
+}
+
+model posts {
   id        Int     @default(autoincrement()) @id
   title     String
   content   String
   published Boolean @default(false)
 }
 
-model User {
+model users {
   id        Int     @default(autoincrement()) @id
   name      String
   age       Int

@@ -8,11 +8,11 @@ export class UserResolver {
 
   @Query(() => [User])
   async users() {
-    return this.prisma.user.findMany();
+    return this.prisma.users.findMany();
   }
 
   @Mutation(() => User)
   async createUser(@Args('name') name: string, @Args('age') age: number) {
-    return this.prisma.user.create({ data: { name, age } });
+    return this.prisma.users.create({ data: { name, age } });
   }
 }
